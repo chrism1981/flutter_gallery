@@ -38,6 +38,7 @@ class GalleryApp extends StatefulWidget {
   final VoidCallback onSendFeedback;
   final bool testMode;
 
+
   @override
   _GalleryAppState createState() => _GalleryAppState();
 }
