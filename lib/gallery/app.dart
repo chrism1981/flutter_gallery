@@ -3,6 +3,9 @@
 // found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:core' as prefix0;
+import 'dart:core';
+import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show defaultTargetPlatform;
@@ -43,6 +46,19 @@ class GalleryApp extends StatefulWidget {
   _GalleryAppState createState() => _GalleryAppState();
 }
 
+class Person {
+  Person(this.name,this.age);
+   String name;
+   int age;
+
+}
+
+class Alien {
+  Alien(this.name,this.age);
+  String name;
+  int age;
+}
+
 class _GalleryAppState extends State<GalleryApp> {
   GalleryOptions _options;
   Timer _timeDilationTimer;
@@ -69,6 +85,12 @@ class _GalleryAppState extends State<GalleryApp> {
       platform: defaultTargetPlatform,
     );
     model = AppStateModel()..loadProducts();
+
+    List()
+      ..add(Alien("aa",4))
+      ..add(Person("aa2",6))
+      ..where((person) => person.age > 5).forEach((age5person) => prefix0.print(age5person.name));
+
   }
 
   @override
@@ -94,7 +116,6 @@ class _GalleryAppState extends State<GalleryApp> {
           timeDilation = newOptions.timeDilation;
         }
       }
-
       _options = newOptions;
     });
   }
